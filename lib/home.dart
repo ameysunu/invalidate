@@ -36,23 +36,204 @@ class _HomeState extends State<Home> {
           style: TextStyle(fontFamily: 'Gotham', color: Colors.black),
         ),
       ),
-      body: SingleChildScrollView(
-        child: SafeArea(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: InkWell(
-                  child: Card(
-                    color: Hexcolor('#FFE8F7'),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("images/main.png"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: SingleChildScrollView(
+          child: SafeArea(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: InkWell(
+                    child: Card(
+                      color: Hexcolor('#FFE8F7'),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                            child: Text(
+                              "Symptoms",
+                              style: TextStyle(
+                                  fontFamily: 'Gotham',
+                                  color: Colors.black,
+                                  fontSize: 20),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(10, 5, 10, 20.0),
+                            child: Text(
+                              "Feeling sick? Let's see how we can help?",
+                              style: TextStyle(
+                                  fontFamily: 'Gotham',
+                                  color: Colors.black,
+                                  fontSize: 15),
+                            ),
+                          ),
+                          Row(
+                            children: [],
+                          ),
+                        ],
+                      ),
+                    ),
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Symptoms()),
+                      );
+                    },
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Card(
+                        color: Hexcolor('#00C3F2'),
+                        child: Container(
+                          height: 190,
+                          width: 150,
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "Sleep",
+                                      style: TextStyle(
+                                          fontFamily: 'Gotham',
+                                          color: Colors.white70),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Icon(Icons.hotel,
+                                        color: Colors.white70),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                                child: Text(
+                                  "7h 45 min",
+                                  style: TextStyle(
+                                      fontFamily: 'Gotham',
+                                      fontSize: 20,
+                                      color: Colors.white),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  "Keep it up. You have had a goodnight's sleep",
+                                  style: TextStyle(
+                                      fontFamily: 'Gotham',
+                                      fontSize: 12,
+                                      color: Colors.white70),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(10.0),
+                      child: Card(
+                        color: Hexcolor('#FFDD85'),
+                        child: Container(
+                          height: 250,
+                          width: 200,
+                          child: Column(
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Text(
+                                      "Cases",
+                                      style: TextStyle(
+                                          fontFamily: 'Gotham',
+                                          color: Hexcolor('#494453')),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(10.0),
+                                    child: Icon(Icons.dangerous,
+                                        color: Hexcolor('#494453')),
+                                  ),
+                                ],
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                                child: Text(
+                                  "30.5 million",
+                                  style: TextStyle(
+                                      fontFamily: 'Gotham',
+                                      fontSize: 20,
+                                      color: Hexcolor('#494453')),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Text(
+                                  "Active: 8.8 million\n\nRecovered:20.8 million\n\nDeaths:900k",
+                                  style: TextStyle(
+                                      fontFamily: 'Gotham',
+                                      fontSize: 12,
+                                      color: Hexcolor('#494453')),
+                                ),
+                              ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                                child: Text(
+                                  "Be safe. Wear a mask whenever you go out.",
+                                  style: TextStyle(
+                                    fontFamily: 'Gotham',
+                                    fontSize: 10,
+                                    color: Hexcolor('#494453'),
+                                    fontStyle: FontStyle.italic,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Card(
+                  child: Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage("images/news.png"),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                          padding: const EdgeInsets.all(10.0),
                           child: Text(
-                            "Symptoms",
+                            "News",
                             style: TextStyle(
                                 fontFamily: 'Gotham',
                                 color: Colors.black,
@@ -60,156 +241,55 @@ class _HomeState extends State<Home> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.fromLTRB(10, 5, 10, 20.0),
+                          padding: const EdgeInsets.all(10.0),
                           child: Text(
-                            "Feeling sick? Let's see how we can help?",
+                            "Get latest live news",
                             style: TextStyle(
                                 fontFamily: 'Gotham',
                                 color: Colors.black,
                                 fontSize: 15),
                           ),
                         ),
-                        Row(
-                          children: [],
-                        ),
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.network(
+                                      "https://seeklogo.com/images/B/bbc-news-logo-8648ABD044-seeklogo.com.png"),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.network(
+                                      "https://seeklogo.com/images/C/CNN-logo-8DA6D1FC28-seeklogo.com.png"),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(10.0),
+                                child: Container(
+                                  height: 150,
+                                  width: 150,
+                                  child: Image.network(
+                                      "https://seeklogo.com/images/N/NBC_News-logo-5C6AD015E2-seeklogo.com.png"),
+                                ),
+                              ),
+                            ],
+                          ),
+                        )
                       ],
                     ),
                   ),
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => Symptoms()),
-                    );
-                  },
                 ),
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Card(
-                      color: Hexcolor('#00C3F2'),
-                      child: Container(
-                        height: 190,
-                        width: 150,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "Sleep",
-                                    style: TextStyle(
-                                        fontFamily: 'Gotham',
-                                        color: Colors.white70),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child:
-                                      Icon(Icons.hotel, color: Colors.white70),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
-                              child: Text(
-                                "7h 45 min",
-                                style: TextStyle(
-                                    fontFamily: 'Gotham',
-                                    fontSize: 20,
-                                    color: Colors.white),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                "Keep it up. You have had a goodnight's sleep",
-                                style: TextStyle(
-                                    fontFamily: 'Gotham',
-                                    fontSize: 12,
-                                    color: Colors.white70),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10.0),
-                    child: Card(
-                      color: Hexcolor('#FFDD85'),
-                      child: Container(
-                        height: 250,
-                        width: 200,
-                        child: Column(
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Text(
-                                    "Cases",
-                                    style: TextStyle(
-                                        fontFamily: 'Gotham',
-                                        color: Hexcolor('#494453')),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.all(10.0),
-                                  child: Icon(Icons.dangerous,
-                                      color: Hexcolor('#494453')),
-                                ),
-                              ],
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
-                              child: Text(
-                                "30.5 million",
-                                style: TextStyle(
-                                    fontFamily: 'Gotham',
-                                    fontSize: 20,
-                                    color: Hexcolor('#494453')),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(10.0),
-                              child: Text(
-                                "Active: 8.8 million\n\nRecovered:20.8 million\n\nDeaths:900k",
-                                style: TextStyle(
-                                    fontFamily: 'Gotham',
-                                    fontSize: 12,
-                                    color: Hexcolor('#494453')),
-                              ),
-                            ),
-                            Padding(
-                              padding:
-                                  const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
-                              child: Text(
-                                "Be safe. Wear a mask whenever you go out.",
-                                style: TextStyle(
-                                  fontFamily: 'Gotham',
-                                  fontSize: 10,
-                                  color: Hexcolor('#494453'),
-                                  fontStyle: FontStyle.italic,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
