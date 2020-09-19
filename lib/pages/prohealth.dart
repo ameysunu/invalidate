@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:hexcolor/hexcolor.dart';
 
 final databaseReference = FirebaseDatabase.instance.reference();
 final firestoreInstance = Firestore.instance;
@@ -33,13 +34,14 @@ class _ProhealthState extends State<Prohealth> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Hexcolor('#FFCAAE'),
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          elevation: 0,
+          backgroundColor: Hexcolor('#FFCAAE'),
           title: Text(
-            "Neutralize",
+            "COVID Testing Center",
             style: TextStyle(
-                fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                fontFamily: 'Gotham', color: Colors.black, fontSize: 18),
           ),
         ),
         body: SingleChildScrollView(
@@ -59,26 +61,26 @@ class _ProhealthState extends State<Prohealth> {
                 child: Text(
                   "Prohealth Urgent Care Of Gramercy Park New York, NY",
                   style: TextStyle(
-                      fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                      fontFamily: 'Gotham', color: Colors.black, fontSize: 18),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 35, 0),
                 child: TextFormField(
                   controller: nameController,
-                  style: TextStyle(color: Colors.white, fontFamily: 'Poppins'),
+                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
                   decoration: new InputDecoration(
                     enabledBorder: new OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.white)),
+                        borderSide: new BorderSide(color: Colors.black)),
                     hintStyle: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white54,
+                        fontFamily: 'Gotham',
+                        color: Colors.black54,
                         fontSize: 15),
                     labelStyle:
-                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
+                        TextStyle(fontFamily: 'Gotham', color: Colors.black),
                     icon: Icon(
                       Icons.person,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     hintText: 'What do people call you?',
                     labelText: 'Name *',
@@ -94,19 +96,19 @@ class _ProhealthState extends State<Prohealth> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 35, 0),
                 child: TextFormField(
                   controller: ageController,
-                  style: TextStyle(color: Colors.white, fontFamily: 'Poppins'),
+                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
                   decoration: new InputDecoration(
                     enabledBorder: new OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.white)),
+                        borderSide: new BorderSide(color: Colors.black)),
                     hintStyle: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white54,
+                        fontFamily: 'Gotham',
+                        color: Colors.black54,
                         fontSize: 15),
                     labelStyle:
-                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
+                        TextStyle(fontFamily: 'Gotham', color: Colors.black),
                     icon: Icon(
                       Icons.accessibility_new_outlined,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     hintText: 'How old are you?',
                     labelText: 'Age *',
@@ -135,7 +137,7 @@ class _ProhealthState extends State<Prohealth> {
                             labelText:
                                 "${selectedDate.toLocal()}".split(' ')[0],
                             labelStyle: TextStyle(
-                                color: Colors.white, fontFamily: "Poppins"),
+                                color: Colors.white, fontFamily: "Gotham"),
                           ),
                         ),
                       ),
@@ -153,7 +155,7 @@ class _ProhealthState extends State<Prohealth> {
                         Center(
                           child: Text(
                             'Book',
-                            style: TextStyle(fontFamily: 'Poppins'),
+                            style: TextStyle(fontFamily: 'Gotham'),
                           ),
                         ),
                       ],
@@ -191,14 +193,14 @@ void _popup(BuildContext context) {
           title: Center(
             child: Text(
               "Do you want to confirm your booking?",
-              style: TextStyle(fontFamily: 'Poppins'),
+              style: TextStyle(fontFamily: 'Gotham'),
             ),
           ),
           content: RaisedButton(
               color: Colors.black,
               child: Text(
                 "Yes",
-                style: TextStyle(fontFamily: "Poppins", color: Colors.white),
+                style: TextStyle(fontFamily: "Gotham", color: Colors.white),
               ),
               onPressed: () {
                 createRecord();

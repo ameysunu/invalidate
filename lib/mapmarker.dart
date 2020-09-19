@@ -1,5 +1,6 @@
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:invalidatee/pages/advantagecare.dart';
 import 'package:invalidatee/pages/elmhurst.dart';
 import 'package:invalidatee/pages/floating.dart';
@@ -58,12 +59,12 @@ class _MapMarkerState extends State<MapMarker> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: Hexcolor('#D5CCE6'),
         appBar: AppBar(
-          backgroundColor: Colors.black,
+          backgroundColor: Hexcolor('#D5CCE6'),
           title: Text(
             "Testing Centers",
-            style: TextStyle(fontFamily: 'Gotham'),
+            style: TextStyle(fontFamily: 'Gotham', color: Hexcolor('#494453')),
           ),
         ),
         body: GoogleMap(
@@ -152,8 +153,11 @@ class _MapMarkerState extends State<MapMarker> {
           },
         ),
         floatingActionButton: FloatingActionButton(
-          backgroundColor: Colors.black,
-          child: Icon(Icons.map),
+          backgroundColor: Hexcolor('#494453'),
+          child: Icon(
+            Icons.map,
+            color: Hexcolor('#D5CCE6'),
+          ),
           onPressed: () {
             setState(() {
               _currentMapType = _currentMapType == MapType.normal
@@ -177,74 +181,86 @@ void _popupDialogOne(BuildContext context) {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.30,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                      child: Text(
-                        '$positionOne',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 17),
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                      image: AssetImage("images/health.png"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Text(
-                        'Address: 138 Delancey St, New York, NY 10002, United States.\n\nPhone: +1 212-609-2541',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Website',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                const url =
-                                    'https://www.citymd.com/urgent-care-locations/ny/manhattan/delancey/031';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                        child: Text(
+                          '$positionOne',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Book',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => CityMD()),
-                                );
-                              }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        child: Text(
+                          'Address: 138 Delancey St, New York, NY 10002, United States.\n\nPhone: +1 212-609-2541',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Website',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  const url =
+                                      'https://www.citymd.com/urgent-care-locations/ny/manhattan/delancey/031';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Book',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => CityMD()),
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -264,74 +280,86 @@ void _popupDialogTwo(BuildContext context) {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.30,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                      child: Text(
-                        '$positionTwo',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 17),
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                      image: AssetImage("images/health.png"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Text(
-                        'Address: 86-15 Queens Blvd, Queens, NY 11373, United States.\n\nPhone: +17188996600',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Website',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                const url =
-                                    'https://www.acpny.com/find-a-provider/locations/elmhurst-medical-office';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                        child: Text(
+                          '$positionTwo',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Book',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Elmhurst()),
-                                );
-                              }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        child: Text(
+                          'Address: 86-15 Queens Blvd, Queens, NY 11373, United States.\n\nPhone: +17188996600',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Website',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  const url =
+                                      'https://www.acpny.com/find-a-provider/locations/elmhurst-medical-office';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Book',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Elmhurst()),
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -352,74 +380,86 @@ void _popupDialogThree(BuildContext context) {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.30,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                      child: Text(
-                        '$positionTwo',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 17),
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                      image: AssetImage("images/health.png"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Text(
-                        'Address: 291 3rd Ave, New York, NY 10010, United States.\n\nPhone: +1 646-609-3403',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Website',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                const url =
-                                    'https://www.prohealthcare.com/?o=PHNY:NPS:OC_9.1_2020:YEXT:OC:GEN:20811CAD15:n_a:n_a:n_a:n_a:n_a';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                        child: Text(
+                          '$positionTwo',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Book',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Prohealth()),
-                                );
-                              }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        child: Text(
+                          'Address: 291 3rd Ave, New York, NY 10010, United States.\n\nPhone: +1 646-609-3403',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Website',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  const url =
+                                      'https://www.prohealthcare.com/?o=PHNY:NPS:OC_9.1_2020:YEXT:OC:GEN:20811CAD15:n_a:n_a:n_a:n_a:n_a';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Book',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Prohealth()),
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -440,74 +480,86 @@ void _popupDialogFour(BuildContext context) {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.30,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                      child: Text(
-                        '$positionFour',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 17),
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                      image: AssetImage("images/health.png"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Text(
-                        'Address: 101 Pennsylvania Ave, Brooklyn, NY 11207, United States.\n\nPhone: +1 646-680-4227',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Website',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                const url =
-                                    'https://www.acpny.com/find-a-provider/locations/east-new-york-medical-office';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                        child: Text(
+                          '$positionFour',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Book',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => AdvantageCare()),
-                                );
-                              }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        child: Text(
+                          'Address: 101 Pennsylvania Ave, Brooklyn, NY 11207, United States.\n\nPhone: +1 646-680-4227',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Website',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  const url =
+                                      'https://www.acpny.com/find-a-provider/locations/east-new-york-medical-office';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Book',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => AdvantageCare()),
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -527,74 +579,86 @@ void _popupDialogFive(BuildContext context) {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.30,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                      child: Text(
-                        '$positionFour',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 17),
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                      image: AssetImage("images/health.png"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Text(
-                        'Address: 2628 Broadway, New York, NY 10025, United States.\n\nPhone: +1 212-897-1992',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Website',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                const url =
-                                    'https://www.gohealthuc.com/nyc/manhattan/w-100th?utm_source=gmb&utm_medium=organic';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                        child: Text(
+                          '$positionFour',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Book',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Northwell()),
-                                );
-                              }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        child: Text(
+                          'Address: 2628 Broadway, New York, NY 10025, United States.\n\nPhone: +1 212-897-1992',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Website',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  const url =
+                                      'https://www.gohealthuc.com/nyc/manhattan/w-100th?utm_source=gmb&utm_medium=organic';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Book',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Northwell()),
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -614,74 +678,86 @@ void _popupDialogSix(BuildContext context) {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Container(
-              height: MediaQuery.of(context).size.height * 0.33,
+              height: MediaQuery.of(context).size.height * 0.30,
               width: MediaQuery.of(context).size.width * 1,
               child: Card(
                 color: Colors.white,
-                child: Column(
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
-                      child: Text(
-                        '$positionFour',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 17),
-                      ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      colorFilter: new ColorFilter.mode(
+                          Colors.black.withOpacity(0.4), BlendMode.dstATop),
+                      image: AssetImage("images/health.png"),
+                      fit: BoxFit.cover,
                     ),
-                    Padding(
-                      padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
-                      child: Text(
-                        'Address: 41 43rd St, Queens, NY 11101, United States.\n\nPhone: +1 718-784-2240',
-                        style: TextStyle(
-                            fontFamily: 'Poppins',
-                            color: Colors.black,
-                            fontSize: 15),
-                      ),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Website',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                const url =
-                                    'https://www.thefloatinghospital.org/';
-                                if (await canLaunch(url)) {
-                                  await launch(url);
-                                } else {
-                                  throw 'Could not launch $url';
-                                }
-                              }),
+                  ),
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 10, 20, 20),
+                        child: Text(
+                          '$positionFour',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 17),
                         ),
-                        Padding(
-                          padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
-                          child: RaisedButton(
-                              color: Colors.white54,
-                              child: Text(
-                                'Book',
-                                style: TextStyle(
-                                    color: Colors.black, fontFamily: 'Poppins'),
-                              ),
-                              onPressed: () async {
-                                Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Floating()),
-                                );
-                              }),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(20, 5, 20, 5),
+                        child: Text(
+                          'Address: 41 43rd St, Queens, NY 11101, United States.\n\nPhone: +1 718-784-2240',
+                          style: TextStyle(
+                              fontFamily: 'Gotham',
+                              color: Colors.black,
+                              fontSize: 15),
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Website',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  const url =
+                                      'https://www.thefloatinghospital.org/';
+                                  if (await canLaunch(url)) {
+                                    await launch(url);
+                                  } else {
+                                    throw 'Could not launch $url';
+                                  }
+                                }),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 5),
+                            child: RaisedButton(
+                                color: Colors.white54,
+                                child: Text(
+                                  'Book',
+                                  style: TextStyle(
+                                      color: Colors.black,
+                                      fontFamily: 'Gotham'),
+                                ),
+                                onPressed: () async {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => Floating()),
+                                  );
+                                }),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -37,9 +37,9 @@ class _ElmhurstState extends State<Elmhurst> {
         appBar: AppBar(
           backgroundColor: Colors.black,
           title: Text(
-            "Neutralize",
+            "COVID Testing Center",
             style: TextStyle(
-                fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                fontFamily: 'Gotham', color: Colors.black, fontSize: 18),
           ),
         ),
         body: SingleChildScrollView(
@@ -59,26 +59,26 @@ class _ElmhurstState extends State<Elmhurst> {
                 child: Text(
                   "Elmhurst ACPNY",
                   style: TextStyle(
-                      fontFamily: 'Poppins', color: Colors.white, fontSize: 18),
+                      fontFamily: 'Gotham', color: Colors.black, fontSize: 18),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(20, 20, 35, 0),
                 child: TextFormField(
                   controller: nameController,
-                  style: TextStyle(color: Colors.white, fontFamily: 'Poppins'),
+                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
                   decoration: new InputDecoration(
                     enabledBorder: new OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.white)),
+                        borderSide: new BorderSide(color: Colors.black)),
                     hintStyle: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white54,
+                        fontFamily: 'Gotham',
+                        color: Colors.black54,
                         fontSize: 15),
                     labelStyle:
-                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
+                        TextStyle(fontFamily: 'Gotham', color: Colors.black),
                     icon: Icon(
                       Icons.person,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     hintText: 'What do people call you?',
                     labelText: 'Name *',
@@ -94,19 +94,19 @@ class _ElmhurstState extends State<Elmhurst> {
                 padding: const EdgeInsets.fromLTRB(20, 10, 35, 0),
                 child: TextFormField(
                   controller: ageController,
-                  style: TextStyle(color: Colors.white, fontFamily: 'Poppins'),
+                  style: TextStyle(color: Colors.black, fontFamily: 'Gotham'),
                   decoration: new InputDecoration(
                     enabledBorder: new OutlineInputBorder(
-                        borderSide: new BorderSide(color: Colors.white)),
+                        borderSide: new BorderSide(color: Colors.black)),
                     hintStyle: TextStyle(
-                        fontFamily: 'Poppins',
-                        color: Colors.white54,
+                        fontFamily: 'Gotham',
+                        color: Colors.black54,
                         fontSize: 15),
                     labelStyle:
-                        TextStyle(fontFamily: 'Poppins', color: Colors.white),
+                        TextStyle(fontFamily: 'Gotham', color: Colors.black),
                     icon: Icon(
                       Icons.accessibility_new_outlined,
-                      color: Colors.white,
+                      color: Colors.black,
                     ),
                     hintText: 'How old are you?',
                     labelText: 'Age *',
@@ -121,7 +121,7 @@ class _ElmhurstState extends State<Elmhurst> {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       RaisedButton(
-                          color: Colors.white,
+                          color: Colors.black,
                           child: Text('Select Date'),
                           onPressed: () {
                             _selectDate(context);
@@ -135,7 +135,7 @@ class _ElmhurstState extends State<Elmhurst> {
                             labelText:
                                 "${selectedDate.toLocal()}".split(' ')[0],
                             labelStyle: TextStyle(
-                                color: Colors.white, fontFamily: "Poppins"),
+                                color: Colors.black, fontFamily: "Gotham"),
                           ),
                         ),
                       ),
@@ -146,14 +146,14 @@ class _ElmhurstState extends State<Elmhurst> {
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: RaisedButton(
-                    color: Colors.white,
+                    color: Colors.black,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Center(
                           child: Text(
                             'Book',
-                            style: TextStyle(fontFamily: 'Poppins'),
+                            style: TextStyle(fontFamily: 'Gotham'),
                           ),
                         ),
                       ],
@@ -191,14 +191,14 @@ void _popup(BuildContext context) {
           title: Center(
             child: Text(
               "Do you want to confirm your booking?",
-              style: TextStyle(fontFamily: 'Poppins'),
+              style: TextStyle(fontFamily: 'Gotham'),
             ),
           ),
           content: RaisedButton(
               color: Colors.black,
               child: Text(
                 "Yes",
-                style: TextStyle(fontFamily: "Poppins", color: Colors.white),
+                style: TextStyle(fontFamily: "Gotham", color: Colors.black),
               ),
               onPressed: () {
                 createRecord();
