@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
+import 'package:invalidatee/analyze.dart';
 import 'package:invalidatee/home.dart';
 import 'package:invalidatee/mapmarker.dart';
 
@@ -15,6 +16,7 @@ class _HomeWidgetState extends State<HomeWidget> {
   final List<Widget> _widgetOptions = [
     Home(),
     MapMarker(),
+    MyApp(),
     // MyHomePage(),
     // User(),
   ];
