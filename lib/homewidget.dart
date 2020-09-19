@@ -34,9 +34,17 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.fastfood, color: Hexcolor('#494453')),
+              icon: new Icon(Icons.map, color: Hexcolor('#494453')),
               title: new Text(
-                'Food',
+                'Test',
+                style:
+                    TextStyle(color: Hexcolor('#494453'), fontFamily: 'Gotham'),
+              ),
+            ),
+            BottomNavigationBarItem(
+              icon: new Icon(Icons.read_more, color: Hexcolor('#494453')),
+              title: new Text(
+                'Analyze',
                 style:
                     TextStyle(color: Hexcolor('#494453'), fontFamily: 'Gotham'),
               ),

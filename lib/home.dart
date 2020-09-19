@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:hexcolor/hexcolor.dart';
 import 'package:invalidatee/login.dart';
+import 'package:invalidatee/symptoms.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -37,7 +39,50 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
-            children: [],
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: InkWell(
+                  child: Card(
+                    color: Hexcolor('#FFE8F7'),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                          child: Text(
+                            "Symptoms",
+                            style: TextStyle(
+                                fontFamily: 'Gotham',
+                                color: Colors.black,
+                                fontSize: 20),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.fromLTRB(10, 5, 10, 20.0),
+                          child: Text(
+                            "Feeling sick? Let's see how we can help?",
+                            style: TextStyle(
+                                fontFamily: 'Gotham',
+                                color: Colors.black,
+                                fontSize: 15),
+                          ),
+                        ),
+                        Row(
+                          children: [],
+                        ),
+                      ],
+                    ),
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Symptoms()),
+                    );
+                  },
+                ),
+              ),
+            ],
           ),
         ),
       ),
