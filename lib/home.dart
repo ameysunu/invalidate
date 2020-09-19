@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:invalidatee/login.dart';
 import 'package:invalidatee/symptoms.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -259,8 +260,18 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                   height: 150,
                                   width: 150,
-                                  child: Image.network(
-                                      "https://seeklogo.com/images/B/bbc-news-logo-8648ABD044-seeklogo.com.png"),
+                                  child: InkWell(
+                                      child: Image.network(
+                                          "https://seeklogo.com/images/B/bbc-news-logo-8648ABD044-seeklogo.com.png"),
+                                      onTap: () async {
+                                        const url =
+                                            'https://www.bbc.com/news/health';
+                                        if (await canLaunch(url)) {
+                                          await launch(url);
+                                        } else {
+                                          throw 'Could not launch $url';
+                                        }
+                                      }),
                                 ),
                               ),
                               Padding(
@@ -268,8 +279,18 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                   height: 150,
                                   width: 150,
-                                  child: Image.network(
-                                      "https://seeklogo.com/images/C/CNN-logo-8DA6D1FC28-seeklogo.com.png"),
+                                  child: InkWell(
+                                      child: Image.network(
+                                          "https://seeklogo.com/images/C/CNN-logo-8DA6D1FC28-seeklogo.com.png"),
+                                      onTap: () async {
+                                        const url =
+                                            'https://edition.cnn.com/health';
+                                        if (await canLaunch(url)) {
+                                          await launch(url);
+                                        } else {
+                                          throw 'Could not launch $url';
+                                        }
+                                      }),
                                 ),
                               ),
                               Padding(
@@ -277,8 +298,18 @@ class _HomeState extends State<Home> {
                                 child: Container(
                                   height: 150,
                                   width: 150,
-                                  child: Image.network(
-                                      "https://seeklogo.com/images/N/NBC_News-logo-5C6AD015E2-seeklogo.com.png"),
+                                  child: InkWell(
+                                      child: Image.network(
+                                          "https://seeklogo.com/images/N/NBC_News-logo-5C6AD015E2-seeklogo.com.png"),
+                                      onTap: () async {
+                                        const url =
+                                            'https://www.nbcnews.com/health';
+                                        if (await canLaunch(url)) {
+                                          await launch(url);
+                                        } else {
+                                          throw 'Could not launch $url';
+                                        }
+                                      }),
                                 ),
                               ),
                             ],
