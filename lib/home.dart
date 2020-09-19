@@ -39,6 +39,7 @@ class _HomeState extends State<Home> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
                 padding: const EdgeInsets.all(10.0),
@@ -81,6 +82,132 @@ class _HomeState extends State<Home> {
                     );
                   },
                 ),
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Card(
+                      color: Hexcolor('#00C3F2'),
+                      child: Container(
+                        height: 190,
+                        width: 150,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Text(
+                                    "Sleep",
+                                    style: TextStyle(
+                                        fontFamily: 'Gotham',
+                                        color: Colors.white70),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child:
+                                      Icon(Icons.hotel, color: Colors.white70),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                              child: Text(
+                                "7h 45 min",
+                                style: TextStyle(
+                                    fontFamily: 'Gotham',
+                                    fontSize: 20,
+                                    color: Colors.white),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                "Keep it up. You have had a goodnight's sleep",
+                                style: TextStyle(
+                                    fontFamily: 'Gotham',
+                                    fontSize: 12,
+                                    color: Colors.white70),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10.0),
+                    child: Card(
+                      color: Hexcolor('#FFDD85'),
+                      child: Container(
+                        height: 250,
+                        width: 200,
+                        child: Column(
+                          children: [
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Text(
+                                    "Cases",
+                                    style: TextStyle(
+                                        fontFamily: 'Gotham',
+                                        color: Hexcolor('#494453')),
+                                  ),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Icon(Icons.dangerous,
+                                      color: Hexcolor('#494453')),
+                                ),
+                              ],
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                              child: Text(
+                                "30.5 million",
+                                style: TextStyle(
+                                    fontFamily: 'Gotham',
+                                    fontSize: 20,
+                                    color: Hexcolor('#494453')),
+                              ),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                "Active: 8.8 million\n\nRecovered:20.8 million\n\nDeaths:900k",
+                                style: TextStyle(
+                                    fontFamily: 'Gotham',
+                                    fontSize: 12,
+                                    color: Hexcolor('#494453')),
+                              ),
+                            ),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.fromLTRB(10.0, 20, 10, 10),
+                              child: Text(
+                                "Be safe. Wear a mask whenever you go out.",
+                                style: TextStyle(
+                                  fontFamily: 'Gotham',
+                                  fontSize: 10,
+                                  color: Hexcolor('#494453'),
+                                  fontStyle: FontStyle.italic,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ],
           ),

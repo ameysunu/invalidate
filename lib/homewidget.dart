@@ -34,7 +34,7 @@ class _HomeWidgetState extends State<HomeWidget> {
               ),
             ),
             BottomNavigationBarItem(
-              icon: new Icon(Icons.map, color: Hexcolor('#494453')),
+              icon: new Icon(Icons.location_on, color: Hexcolor('#494453')),
               title: new Text(
                 'Test',
                 style:
