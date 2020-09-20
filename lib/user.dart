@@ -160,18 +160,22 @@ class _UserState extends State<User> {
                                                             int index) {
                                                       return ListTile(
                                                         title: Text(
-                                                          "Symptoms:\n" +
+                                                          "Name:\n" +
                                                               snapshot.data
                                                                       .data()[
                                                                   'name'] +
-                                                              "\n\nHave you travelled outside the US within 14 days? If yes mention country(s):\n" +
+                                                              "\n\nAge:\n" +
                                                               snapshot.data
                                                                       .data()[
                                                                   'age'] +
-                                                              "\n\nDo you have chest pain/breathing issues? Also mention if you are a frequent smoker:\n" +
+                                                              "\n\nDate:\n" +
                                                               snapshot.data
                                                                       .data()[
-                                                                  'date'],
+                                                                  'date'] +
+                                                              "\n\nHospital:\n" +
+                                                              snapshot.data
+                                                                      .data()[
+                                                                  'hospital'],
                                                           style: TextStyle(
                                                               color:
                                                                   Colors.black,
