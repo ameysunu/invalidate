@@ -57,10 +57,10 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Hexcolor('#FFDFCA'),
+        backgroundColor: Hexcolor('#494453'),
         child: Icon(
           Icons.chat,
-          color: Hexcolor('#5C6178'),
+          color: Hexcolor('#D5CCE6'),
         ),
         onPressed: () {
           Navigator.of(context).push(
@@ -118,14 +118,14 @@ class _MyHomePageState extends State<MyHomePage> {
             SizedBox(height: 10.0),
             text == ''
                 ? Text(
-                    'Tap and find out addresses.',
+                    'Tap and find out your prescriptions.',
                     style: TextStyle(fontFamily: 'Gotham'),
                   )
                 : Expanded(
                     child: SingleChildScrollView(
                       child: Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: Text(
+                        child: SelectableText(
                           text,
                           style: TextStyle(fontFamily: 'Gotham'),
                         ),

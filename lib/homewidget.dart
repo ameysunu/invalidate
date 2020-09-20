@@ -3,6 +3,7 @@ import 'package:hexcolor/hexcolor.dart';
 import 'package:invalidatee/analyze.dart';
 import 'package:invalidatee/home.dart';
 import 'package:invalidatee/mapmarker.dart';
+import 'package:invalidatee/user.dart';
 
 class HomeWidget extends StatefulWidget {
   @override
@@ -17,8 +18,7 @@ class _HomeWidgetState extends State<HomeWidget> {
     Home(),
     MapMarker(),
     MyApp(),
-    // MyHomePage(),
-    // User(),
+    User(),
   ];
 
   Widget build(BuildContext context) {
